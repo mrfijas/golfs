@@ -20,8 +20,8 @@ class Person:
     def bump(self):
         if self.state == 'S':
             self.since_getting_sick += 1
-        if self.state == 'S' and self.since_getting_sick == 14:
-            self.state = 'R'
+            if self.since_getting_sick == 14:
+                self.state = 'R'
         self.gen_n()
 
     def gen_n(self):
