@@ -50,13 +50,17 @@ def get_new_cords(person: Person):
 	return x % width, y % height
 
 
+def colored(i, string):
+	return f'\033[{30 + i}m{string}\033[30m'
+
+
 def print_world():
 	for y in range(height):
 		for x in range(width):
 			dot = '.'
-			for person in population:
+			for i, person in enumerate(population):
 				if person.position == (x, y):
-					dot = person.state
+					dot = colored(i, person.state)
 			print(dot, end='')
 		print()
 
@@ -83,7 +87,19 @@ population = []
 for state in initial_state:
 	population.append(Person((int(state[0]), int(state[1])), state[2], state[3] == '1'))
 
+
+def debug(i):
+	print(f'{str(i).zfill(2)}: ', end='')
+	for j, p in enumerate(population):
+		print(colored(j, f'{p.position[0]}{p.position[1]}{p.state}({p.since_getting_sick})'), end=' ')
+	print()
+
+# print('\033[47m')
 for i in range(generations):
+	debug(i)
+	print_world()
+
 	next_iteration()
 
+debug(generations)
 print_world()
