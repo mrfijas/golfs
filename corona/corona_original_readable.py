@@ -66,7 +66,7 @@ def next_iteration():
         person.bump()
         if not person.quarantined:
             new_cords = get_new_cords(person)
-            if not any(new_cords == p.position for p in population):
+            if all(new_cords != p.position for p in population):
                 person.position = new_cords
         if person.state == 'H' and any(
                 p.state == 'S' and
@@ -83,7 +83,14 @@ population = []
 for state in initial_state:
     population.append(Person((int(state[0]), int(state[1])), state[2], state[3] == '1'))
 
+def debug(i):
+    return
+    print(f'{str(i).zfill(2)}: ', end='')
+    print([f'{p.position[0]}{p.position[1]}{p.state}({p.since_getting_sick})' for p in population])
+
 for i in range(generations):
+    debug(i)
     next_iteration()
 
+debug(generations)
 print_world()

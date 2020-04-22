@@ -10,7 +10,7 @@ def capture(command):
 	return out
 
 
-file = 'corona.py'
+file = 'manual.py'
 
 
 @pytest.mark.parametrize('i, state, expected', [
