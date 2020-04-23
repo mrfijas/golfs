@@ -21,6 +21,6 @@ for i in R(I(e)):
 
 		if not p[2] and not any(d(p) == o[0] for o in z): p[0] = d(p)
 		j = p[0]
-		if p[1] == 'H' and any(o[1] == X and j[0] - 1 <= o[0][0] <= j[0] + 1 and j[1] - 1 <= o[0][1] <= j[1] + 1 for o in z): p[1] = X
+		if p[1] == 'H' and any(o[1] == X and o[0][0] in [~-j[0]%8,j[0],-~j[0]%8] and o[0][1] in [~-j[1]%8,j[1],-~j[1]%8] for o in z): p[1] = X
 
 for i in R(64): print(next((m[1] for m in z if m[0] == (i % 8, I(i / 8))), '.'), end='' if i % 8 != 7 else '\n');
