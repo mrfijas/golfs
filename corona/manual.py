@@ -12,5 +12,5 @@ for i in R(I(e)):
 		d^=d<<13;d^=d>>17;d^=d<<5;p[3]=d%(1<<30);n=p[3]%4;f=[[x-1,x][n!=1],x+1][n==0]%8,[[y-1,y][n!=3],y+1][n==2]%8
 		if(c!='1')*all(f!=o[0]for o in z):p[0]=f
 		j,k=p[0]
-		if p[1]=='H'*any(u==X*(o in[~-j%8,j,-~j%8])*(e in[~-k%8,k,-~k%8])for(o,e),u,*_ in z):p[1]=X
+		if b=='H'*any(u==X*(o in[~-j%8,j,-~j%8])*(e in[~-k%8,k,-~k%8])for(o,e),u,*_ in z):p[1]=X
 for i in R(64):print(next((m[1]for m in z if m[0]==(i%8,I(i/8))),'.'),end=['','\n'][i%8==7])
