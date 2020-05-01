@@ -10,7 +10,8 @@ def capture(command):
 	return out
 
 
-file = 'manual.py'
+# config = 'python3 manual.py'
+config = '/home/marek/n/bin/node corona.js'
 
 
 @pytest.mark.parametrize('i, state, expected', [
@@ -25,4 +26,5 @@ file = 'manual.py'
 	('19', '01H1,05R1,52H0,33S0,20R1,27H0,61R1', b'..RR...S\nS.....R.\n........\n....R...\n........\nR.......\n........\n........\n'),
 ])
 def test_something(i, state, expected):
-	assert capture(['python3', file, i, state]) == expected
+	script, file = config.split(' ')
+	assert capture([script, file, i, state]) == expected
