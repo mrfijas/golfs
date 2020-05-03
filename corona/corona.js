@@ -3,8 +3,7 @@ p=c.split`,`.map(([x,y,s,q])=>({x:+x,y:+y,s,q,n:(x<<2)^7*(y<<3)^5,d:14}))
 u=n=>n<0?7:n%8
 t=(r,l)=>[u(r-1),r,u(r+1)].includes(l)
 f='S'
-for(j=+e;j;j--)
-p.map(m=>{let{x,y,s,n}=m
+for(j=+e;j;j--)p.map(m=>{({x,y,s,n}=m)
 s==f&&m.d--
 m.d||(m.s='R')
 n=BigInt(n)
