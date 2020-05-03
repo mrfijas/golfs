@@ -1,4 +1,4 @@
-let{argv:[,,e,c],stdout:v}=process
+({argv:[,,e,c],stdout:v}=process)
 p=c.split`,`.map(([x,y,s,q])=>({x:+x,y:+y,s,q,n:(x<<2)^7*(y<<3)^5,d:14}))
 u=n=>n<0?7:n%8
 t=(r,l)=>[u(r-1),r,u(r+1)].includes(l)
